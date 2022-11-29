@@ -4,6 +4,9 @@ const app = express();
 
 const port = process.env.PORT || 3000
 
-app.listen(port);
+// LEVANTAMOS EL PUERTO
+app.listen(port, () => {
+    console.log('Servidor Corriendo en el Puerto 3000');
+});
 
 console.log('listen on port ${port}')
