@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head')  %> 
+  
+  <body>
+    <%- include('partials/header') %> 
+    <title>INCLUDE Home</title>
+    <main>
+      <!-- aca voy a meter el cuerpo del home - trabajo mobilefirst   -->
+      <div class="banner">
+        <video class="video-banner" src="/videos/banner-toptop.mp4" autoplay loop muted>
+        </video>
+      </div>
+      
+      <section>
+
+            <!-- <h1 class="category"> TOP </h1> -->
+
+              <div class="tarjeta">  
+                <%(products.filter(product => product.categoryProduct === "top")).forEach(product => { %>
+
+                  <article class="card"><a href="/products/<%= product.id %> ">
+                        <img class="image" src="/images/products/<%= product.image[0] %>" alt="<%= product.name %>">
+                        <img class="image2" src="/images/products/<%= product.image[1] %>" alt="<%= product.name %>">
+                        <div class="description">
+                            <p class="nameProduct"><%= product.name %></p>
+                            <p class="price">$<%= product.price %></p>
+                        </div>
+                    </a></article>  
+                  <% }) %>
+              </div>
+      </section>
+
+      <div class="banner">
+        <video class="video-banner" src="/videos/banner-pantalones.mp4" autoplay loop muted>
+        </video>
+      </div>
+      <section> 
+<!-- 
+        <h1 class="category"> PANTALONES </h1> -->
+        <div class="tarjeta">  
+          <%(products.filter(product => product.categoryProduct === "pantalon")).forEach(product => { %>
+
+           <article class="card"><a href="/products/<%= product.id %> ">
+                 <img class="image" src="/images/products/<%= product.image[0] %>" alt="<%= product.name %>">
+                 <img class="image2" src="/images/products/<%= product.image[1] %>" alt="<%= product.name %>">
+                 <div class="description">
+                     <p class="nameProduct"><%= product.name %></p>
+                     <p class="price">$<%= product.price %></p>
+                 </div>
+             </a></article>
+                
+           <% }) %>
+                  
+                  <!-- <a href="/product/productDetail"><article class="card">
+                          <img class="image" src="/images/productHome/pantalones1.jpg" alt="Overal Orange" >
+                          <img class="image2" src="/images/productHome/pantalones1.1.jpg" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Pantalon Jirafa</p>
+                              <p class="price">$10200</p>
+                          </div>
+                    </article></a>
+                  <a href="/product/productDetail"><article class="card">
+                          <img class="image" src="/images/productHome/pantalones2.png" alt="destalle-del-producto" >
+                          <img class="image2" src="/images/productHome/pantalones2.1.png" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Biker Negra</p>
+                              <p class="price">$8000</p>
+                          </div>
+                    </article></a>
+                    <a href="/product/productDetail"><article class="card">
+                          <img class="image" src='/images/productHome/pantalones3.jpg' alt="destalle-del-producto" >
+                          <img class="image2" src="/images/productHome/pantalones3.1.jpg" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Biker Naranja</p>
+                              <p class="price">$8000</p>
+                          </div>
+                    </article></a>
+                  <a href="/product/productDetail"><article class="card">
+                          <img class="image" src='/images/productHome/pantalones4.jpg' alt="destalle-del-producto" >
+                          <img class="image2" src="/images/productHome/pantalones4.1.jpg" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Biker Verde</p>
+                              <p class="price">$9800</p>
+                          </div>
+                    </article></a> -->
+          </div>
+      </section>
+      <section>
+        <div class="banner">
+          <video class="video-banner" src="/videos/banner-accesorios.mp4" autoplay loop muted>
+          </video>
+        </div>
+        <!-- <h1 class="category"> ACCESORIOS </h1> -->
+        <div class="tarjeta">  
+          <%(products.filter(product => product.categoryProduct === "accesorio")).forEach(product => { %>
+
+           <article class="card"><a href="/products/<%= product.id %> ">
+                 <img class="image" src="/images/products/<%= product.image[0] %>" alt="<%= product.name %>">
+                 <img class="image2" src="/images/products/<%= product.image[1] %>" alt="<%= product.name %>">
+                 <div class="description">
+                     <p class="nameProduct"><%= product.name %></p>
+                     <p class="price">$<%= product.price %></p>
+                 </div>
+             </a></article>
+                
+           <% }) %>
+
+                  <!-- <a href="/product/productDetail"><article class="card">
+                          <img class="image" src="/images/productHome/accesorios1.webp" alt="Overal Orange" >
+                          <img class="image2" src="/images/productHome/accesorios1.1.webp" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Medias</p>
+                              <p class="price">$1500</p>
+                          </div>
+                    </article></a>
+                  <a href="/product/productDetail"><article class="card">
+                          <img class="image" src="/images/productHome/accesorios2.webp" alt="destalle-del-producto" >
+                          <img class="image2" src="/images/productHome/accesorios2.1.webp" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Bandana</p>
+                              <p class="price">$1200</p>
+                          </div>
+                    </article></a>  
+                  <a href="/product/productDetail"><article class="card">
+                          <img class="image" src='/images/productHome/accesorios3.webp' alt="destalle-del-producto" >
+                          <img class="image2" src="/images/productHome/accesorios3.1.webp" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Pin Rainbow</p>
+                              <p class="price">$400</p>
+                          </div>
+                    </article></a>
+                  <a href="/product/productDetail"><article class="card">
+                          <img class="image" src='/images/productHome/accesorios4.webp' alt="destalle-del-producto" >
+                          <img class="image2" src="/images/productHome/accesorios4.1.webp" alt="Overal Orange" >
+                          <div class="description">
+                              <p class="nameProduct">Pin Sandia</p>
+                              <p class="price">$400</p>
+                          </div>
+                    </article></a> -->
+          </div>
+      </section>
+
+      
+
+  <section>
+
+      <div class="banner diseño_marca">
+        <img class="video-bannerDesigner" src="/videos/banner-diseñoymarca.png" alt="diseñoymarca">
+        
+      </div>
+
+    <div class="container--slider">
+      <div class="slider" id="slider">
+        <div class="slider__section">
+          <img src="/videos/diseñadores1.png" class="slider__img" alt="diseñadores1">
+        </div>
+        <div class="slider__section">
+          <img src="/videos/diseñadores2.png" class="slider__img" alt="diseñadores2">
+        </div>
+        <div class="slider__section">
+          <img src="/videos/diseñadores3.png" class="slider__img" alt="diseñadores3">
+        </div>
+      </div>
+      <div class="slider__btn slider__btn--right" id="btn-right">  
+        <i class="fa-solid fa-angle-right"></i>
+      </div>
+      <div class="slider__btn slider__btn--left" id="btn-left">  
+        <i class="fa-solid fa-angle-left"></i>
+      </div>      
+    </div>
+    <script >
+      const slider = document.querySelector("#slider");
+let sliderSection = document.querySelectorAll(".slider__section");
+let sliderSectionLast = sliderSection[sliderSection.length-1];
+
+const btnLeft = document.querySelector("#btn-left");
+const btnRight = document.querySelector("#btn-right");
+
+slider.insertAdjacentElement("afterbegin", sliderSectionLast);
+
+function Next(){
+    let sliderSectionFirst = document.querySelectorAll(".slider__section")[0];
+    slider.style.marginLeft = "-250%";
+    slider.style.transition = "all 2s linear";
+    setTimeout(function(){
+        slider.style.transition = "none";
+        slider.insertAdjacentElement("beforeend", sliderSectionFirst);
+        slider.style.marginLeft = "-150%"
+    }, 2000);
+}
+
+function Prev(){
+    let sliderSection = document.querySelectorAll(".slider__section");
+    let sliderSectionLast = sliderSection[sliderSection.length -1];
+
+    slider.style.marginLeft = "-50%";
+    slider.style.transition = "all 2s linear";
+    setTimeout(function(){
+        slider.style.transition = "none";
+        slider.insertAdjacentElement("afterbegin", sliderSectionLast);
+        slider.style.marginLeft = "-150%"
+    }, 2000);
+}
+
+btnRight.addEventListener("click", function(){ 
+    Next();
+});
+btnLeft.addEventListener("click", function(){
+    Prev();
+});
+
+    </script>
+  </section>
+  
+  
+  
+</main>
+
+    <%- include('partials/footer')  %> 
+    
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head')  %> 
+  
+  <body>
+    <%- include('partials/header') %> 
+    <title>Productos</title>
+
+    <main>
+      <!-- aca voy a meter el cuerpo del home - trabajo mobilefirst   -->
+            
+      <section>
+        <div class="pageName">
+          <h2 class="titleProductsList">RESULTADO BÚSQUEDA</h2>
+          <h4 class="subtitleProductsList">(Home > Resultados búsqueda)</h4>
+      </div>
+
+      
+
+            <!-- <h1 class="category"> TOP </h1> -->
+
+              <div class="tarjeta">  
+                 <%products.forEach(product => { %>
+
+                  <article class="card"><a href="/products/<%= product.id %>">
+                        <img class="image" src="/images/products/<%= product.image %>" alt="<%= product.name %> ">
+                        <img class="image2" src="/images/products/<%= product.image2 %>" alt="<%= product.name %>">
+                        <div class="description">
+                            <p class="nameProduct"><%= product.name %></p>
+                            <p class="price">$<%= product.price %></p>
+                        </div>
+                    </a></article>
+                       
+                  <% }) %>
+              </div>
+
+      </section>
+      <%- include('partials/search')  %>
+    </main>
+
+    <%- include('partials/footer')  %> 
+    
+  </body>
+</html>

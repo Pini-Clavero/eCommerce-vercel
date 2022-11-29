@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head')  %> 
+
+  <body>
+    <%- include('partials/header') %>
+    <title>Editar Producto</title>
+  
+      <main class="mainCreateProduct">
+      
+        <div class="contaicontainCreate">
+              <div>
+                <h2 class="titleCreateProduct">Editar Producto</h2>
+                <h5 class="subtitleCreatProduct">Home > Editar</h5>
+              </div>
+
+            <form class='formularioCreateProducts' method="POST" action="/products/<%= product.id %>/edit?_method=PUT" enctype="multipart/form-data">
+
+                  <div class="editarCP">
+                      <label for="name">Nombre del Producto</label>
+                      <input class="formatCreateProductInput" type="text" value="<%=product.name  %> " name="name">
+                  </div>
+
+                  <div class="editarCP">
+                      <label for="description">Descripción del Producto</label>
+                      <input class="formatCreateProductInput" type="text" value="<%=product.description  %>" id="description" name="description">
+                  </div>
+
+                  <div class="editarCP">
+                    <label for="characteristics">Caracteristicas</label>
+                    <input class="formatCreateProductInput" type='text' value="<%=product.characteristics  %>" id="ca" name="characteristics">
+                  </div>
+
+                  <div class="editarCP">
+                    <label for="sizing">Dimensionamiento</label>
+                    <input class="formatCreateProductInput" type='textarea' value="<%=product.sizing  %>" id="ca" name="sizing">
+                  </div>
+
+                  <div class="editarCP">
+                    <label for="image">Imagenes</label>
+                    </div>
+                        
+                        <p><%= "Imagen: Principal"%> </p>
+                        <img class="image" src="/images/products/<%= product.image[0]%> ">
+                        <div class="divImage">
+                          <label for="image">Nueva imagen Principal</label>
+                          <input class="formatFileCP" type="file" name="image" accept=".jpg, .png" >
+                        </div>
+
+                        <p><%= "Imagen: Secundaria"%> </p>
+                        <img class="image" src="/images/products/<%= product.image[1]%> ">
+                        <div class="divImage">
+                          <label for="image2">Nueva imagen Secundaria</label>
+                          <input class="formatFileCP" type="file" name="image2" accept=".jpg, .png" >
+                        </div>
+                        
+                        <p><%= "Imagen: miniatura"%> </p>
+                        <img class="image" src="/images/products/<%= product.image[2]%> ">
+                        <div class="divImage">
+                          <label for="image3">Nueva imagenes miniatura</label>
+                          <input class="formatFileCP" type="file" name="image3" accept=".jpg, .png" >
+                        </div>
+                        
+                        <p><%= "Imagen: miniatura"%> </p>
+                        <img class="image" src="/images/products/<%= product.image[3]%> ">
+                        <div class="divImage">
+                          <label for="image4">Nueva imagenes miniatura</label>
+                          <input class="formatFileCP" type="file" name="image4" accept=".jpg, .png" >
+                        </div>
+
+                        <p><%= "Imagen: miniatura"%> </p>
+                        <img class="image" src="/images/products/<%= product.image[4]%> ">
+                        <div class="divImage">
+                          <label for="image5">Nueva imagenes miniatura</label>
+                          <input class="formatFileCP" type="file" name="image5" accept=".jpg, .png" >
+                        </div>
+                    </div>
+
+                    
+                  </div>
+
+                  <div>
+                    <input name="id" value="<%= product.id%>">
+                  </div>
+
+                  <div class="editarCP">
+                    <label for="categoryProduct">Categoría:</label>
+                    <select name="categoryProduct">
+                      <option value="top">Top</option>
+                      <option value="pantalon">Pantalon</option>
+                      <option value="accesorio">Accesorios</option>
+                    </select>
+                  </div>
+
+                  <div class="editarCP">
+                    <label for="color">Colores:</label>
+                    <select name="color">
+                      <option selected="selected" value="<%=product.color %>"><%=product.color %></option>
+                      <option value="Rojo">Rojo</option>
+                      <option value="Azul">Azul</option>
+                      <option value="Amarillo">Amarillo</option>
+                      <option value="Negro">Negro</option>
+                      <option value="Blanco">Blanco</option>
+                      <option value="Verde">Verde</option>
+                      <option value="Naranja">Naranja</option>
+                      <option value="Violta">Violta</option>
+                    </select> 
+                  </div>
+                  
+                  <div class="editarCP">
+                    <label for="size">Talles:</label>
+                    <select name="size">
+                      <option selected="selected" value="<%=product.size %>"><%=product.size %></option>
+                      <option value="XXS">XXS</option>
+                      <option value="XS">S</option>
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                      <option value="3XL">3XL</option>
+                      <option value="4XL">4XL</option>
+                      <option value="5XL">5XL</option>
+                      <option value="6XL">6XL</option>
+                    </select>
+                  </div>
+
+                  <div class="editarCP">
+                    <label for="price">Precio</label>
+                    <input class="formatCreateProductInput" name="price" value="<%=product.price  %>" type="number" minlength="6" >
+                  </div>
+                  <div class="editarCP">
+                    <label for="cantidad">Cantidad</label>
+                    <input class="formatCreateProductInput" name="cantidad" value="<%=product.stock  %>" type="number" minlength="6" >
+                  </div>
+                  <div class="editarCP">
+                    <button type="submit" class="form-button">Editar</button>
+                  </div>
+                  <% if (typeof errorsProduct != "undefined") { %>
+                    <p style="color:red">Error</p>
+                    <ul>
+                      <% for (let i=0; i<errorsProduct.length; i++) { %>
+                        <li>
+                          <%= errorsProduct[i].msg %>
+                        </li>
+                      <% } %>
+                    </ul> 
+                  <% } %>
+            </form>
+
+        </div>
+
+      </main>
+  
+  <%- include('partials/footer')  %> 
+
+</body>
+</html>

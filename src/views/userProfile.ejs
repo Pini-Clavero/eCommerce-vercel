@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head')  %> 
+
+  <body>
+    <%- include('partials/header') %>
+
+    <div class="pageName">
+      <h2 class="titleDetail">Bienvenidx al perfil de tu usuario</h2>
+      <h4 class="subtitleDetail">(Profile > <%= userLogueado.name %> - <%= userLogueado.lastName %>)</h4>
+    </div>
+    
+    <main class="mainProfile">
+      <section class="imageDetail">
+        <div class="imageBig">
+          <img class="imagenDetail" src="/images/users/<%= userLogueado.avatar %>" alt="User Avatar">
+        </div>
+      </section>
+      <section>
+          <div>
+            <h2 class="itemDetail"><span class="down3"><i class="neonIcon fa-solid fa-angles-right"></i></span></i>Nombre</h2>
+            <p class="descriptionDetail"><%=  userLogueado.name%></p>
+          </div>
+          <div>
+            <h2 class="itemDetail"><span class="down3"><i class="neonIcon fa-solid fa-angles-right"></i></span></i>Apellido</h2>
+            <p class="descriptionDetail"><%= userLogueado.lastName %></p>
+          </div>
+          <div>
+            <h2 class="itemDetail"><span class="down3"><i class="neonIcon fa-solid fa-angles-right"></i></span></i>Te agendamos como</h2>
+            <p class="descriptionDetail"><%= userLogueado.userName %></p>
+          </div>
+          <div>
+            <h2 class="itemDetail"><span class="down3"><i class="neonIcon fa-solid fa-angles-right"></i></span></i>Email registrado</h2>
+            <p class="descriptionDetail"><%= userLogueado.email %></p>
+          </div>
+      </section>
+    </main>
+
+  
+  <%- include('partials/footer')  %> 
+
+</body>
+</html>

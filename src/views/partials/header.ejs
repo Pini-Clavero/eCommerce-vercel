@@ -1,0 +1,149 @@
+<header class="header">
+    <nav class="nav">
+      <ul class="site">
+        <div >
+          <li>
+            <a href="/">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
+        </div>
+        <div >
+          <a href="/products/productsList">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <li>Buscar</a></li>
+        </div>
+      </ul>
+    <button class="burgerMenu" id="menu">
+      <span>
+        <i class="fa-solid fa-bars" id="menu-abrir"></i>
+      </span>
+      <span>
+        <i class="fa-solid fa-circle-xmark" id="menu-cerrar"></i>
+      </span>
+    </button>
+    <a href="/"><img class="logoHeaderMobile" src="/images/logos/logo-text.png"></a>
+    <a href="/"><img class="logoHeaderDesktop" src="/images/logos/logo-text.png"></a>
+    <div class="userSession2">
+      <%  if (!userLogueado) { %>
+        <a href="/user/loginRegister"><img class="userImg" src="/images/users/default-avatar.jpg" alt="Default Avatar"></a>
+        <a href="/user/loginRegister" ><i class="iconOutSession fa-solid fa-arrow-right-from-bracket" style="color:transparent"></i></a>
+        <% } else {  %>
+          <a href="/user/userProfile"><img class="userImg" src="/images/users/<%= userLogueado.avatar %>" alt="Avatar de Usuario"></a>
+          <a href="/user/logout"><i class="iconOutSession fa-solid fa-arrow-right-from-bracket"></i></a>
+      <% } %> 
+    </div>
+        <ul class="login">
+          <div>
+            <%  if (userLogueado) { %>
+              <li>
+              <a class="nameUser" href="/user/userProfile">
+                <i class="fa-solid fa-circle-user"></i><br>
+                Mi Perfil
+              </a>
+              </li>
+              <% } else {  %>
+                <li>
+                  <a href="/user/loginRegister">
+                    <i class="fa-solid fa-circle-user"></i>
+                    Registrarse
+                  </a>
+                </li>
+            <% } %> 
+          </div>
+          <div >
+            <% if (userLogueado.permissionId == 1) { %>
+              <li>
+                <a href="/products/create">
+                  <i class="fa-solid fa-star"></i>
+                  Nuevo
+                </a>
+            <% } else { %>
+              <li>
+              <a href="/products/productCart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Compras
+              </a>
+            </li>
+            <% } %> 
+          </div>
+        </ul>
+    </nav>
+    <div id="navBarBM">
+      <ul>
+        <div>
+          <li>
+            <a href="/">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
+        </div>
+        <div>
+          <li>
+            <a href="/products/productsList">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Buscar
+            </a>
+          </li>
+        </div>
+      </ul>
+        <ul>
+          <div>
+            <%  if (userLogueado) { %>
+              <li>
+              <a class="nameUser" href="/user/userProfile">
+                <i class="fa-solid fa-circle-user"></i>
+                Mi Perfil
+              </a>
+              </li>
+              <% } else {  %>
+                <li>
+                  <a href="/user/loginRegister">
+                    <i class="fa-solid fa-circle-user"></i>
+                    Registrarse
+                  </a>
+                </li>
+            <% } %> 
+          </div>
+          <div>
+            <% if (userLogueado.permissionId == 1) { %>
+              <li>
+                <a href="/products/create">
+                  <i class="fa-solid fa-star"></i>
+                  Nuevo
+                </a>
+            <% } else { %>
+              <li>
+              <a href="/products/productCart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Compras
+              </a>
+            </li>
+            <% } %> 
+          </div>
+        </ul>
+      </div>
+        <script>
+          window.addEventListener("DOMContentLoaded", (event) => {
+            const menuBtn = document.getElementById("menu")
+            const nav = document.querySelector("#navBarBM")
+            
+            menuBtn.addEventListener("click", (event) => {
+            menuBtn.classList.toggle("salir")
+            nav.classList.toggle("visible")
+              })
+          })
+        </script>
+          <div class="userSession">
+            <%  if (!userLogueado) { %>
+              <img class="userImg" src="/images/users/default-avatar.jpg" alt="Default Avatar">
+              <a class="nameUser" href="/user/loginRegister">Iniciar Sesión</a>
+              <% } else {  %>
+                <a href="/user/userProfile"><img class="userImg" src="/images/users/<%= userLogueado.avatar %>" alt="Avatar de Usuario"></a>
+                <a href="/user/userProfile"><p class="nameUser"><%= userLogueado.userName %></p></a>
+                <a href="/user/logout"><i class="iconOutSession fa-solid fa-arrow-right-from-bracket"></i></a>
+            <% } %> 
+          </div>
+  </header>
