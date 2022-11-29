@@ -19,16 +19,12 @@ app.use(express.static(publicPth) );
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs'); // esto para que era???
 
-
-
-
 //CREAMOS LA SESSION
 app.use(session({
     secret: 'Secreto',
     resave : false,
     saveUninitialized: false}
 ));
-
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method')); // PaRA poder pisar el method="POST" en el formulario por PUT y DELETE
@@ -39,6 +35,5 @@ app.use(express.json());
 app.use('/', mainRouter);
 app.use('/products', productRouter);
 app.use('/user', userRouter);
-
 
 module.exports = app;
