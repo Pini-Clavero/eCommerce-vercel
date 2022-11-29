@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const db = require("../../database/models");
+const db = require("../../database/models/db.js");
 
 function rememberMiddleware(req, res, next) {
     
